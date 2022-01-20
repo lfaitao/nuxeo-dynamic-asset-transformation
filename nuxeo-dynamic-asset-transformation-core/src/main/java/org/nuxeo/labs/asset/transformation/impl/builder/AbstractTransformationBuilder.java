@@ -97,7 +97,7 @@ public abstract class AbstractTransformationBuilder<T extends AbstractTransforma
 
     public V build() {
 
-        Transformation transformation = getNewEmptyTransformation();
+        V transformation = getNewEmptyTransformation();
 
         //first, crop
         if (this.cropBox == null) {
@@ -129,7 +129,7 @@ public abstract class AbstractTransformationBuilder<T extends AbstractTransforma
         transformation.setBackgroundColor(StringUtils.isNotEmpty(this.backgroundColor) ? this.backgroundColor : getDefaultBackgroundColor());
         transformation.setCompressionLevel(this.compressionLevel > 0 ? this.compressionLevel : getDefaultCompressionLevel());
 
-        return (V) transformation;
+        return transformation;
     }
 
     protected abstract V getNewEmptyTransformation();
